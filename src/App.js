@@ -14,8 +14,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/"><Landing/></Route>
-        <Route path="/*"><PageNotFound/></Route>
+      <Route exact path="/" component={Landing} />
+      <Route path="/*" component={PageNotFound} /> 
       </Switch>
     </Router>
   )
@@ -23,5 +23,4 @@ function App() {
 
 export default App;
 // eslint-disable-next-line
-{/* <Route exact path="/" component={LandingPage}/>
-<Route path="/home" component={Home} /> */}
+
