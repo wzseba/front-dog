@@ -3,7 +3,7 @@ import {
   Switch,
   Route} from 'react-router-dom';
 import Landing from './components/Landing/Landing';
-import './App.css';
+
 import axios from 'axios';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
