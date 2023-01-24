@@ -22,3 +22,6 @@ function App() {
 }
 
 export default App;
+// eslint-disable-next-line
+{/* <Route exact path="/" component={LandingPage}/>
+<Route path="/home" component={Home} /> */}
