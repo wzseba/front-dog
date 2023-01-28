@@ -4,11 +4,6 @@
 
 # Individual Project - Henry Dogs
 
-<p align="left">
-  <img height="200" src="./Captura de pantalla de 2021-03-04 12-27-28.png" />
-</p>
-
-
 La aplicación muestra distintas razas de perro junto con información relevante de las mismas utilizando la api externa [the dog api](https://thedogapi.com/) y a partir de ella, se puede:
 
   - Buscar perros
