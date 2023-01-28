@@ -1,4 +1,4 @@
-<p align='left'>
+<p align='center'>
     <img src='https://www.lavanguardia.com/files/image_449_220/uploads/2022/05/09/6278c6e1a7002.jpeg' </img>
 </p>
 
