@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import s from './Landing.module.css';
 
 
@@ -30,22 +28,19 @@ const Landing = () => {
             <ul>
                 <li >
                   <a href="https://www.linkedin.com/in/dev-sebastian-vera" target={'_blank'} rel="noreferrer">
-                    <FontAwesomeIcon icon={faLinkedinIn} size='2xl'/>
-                   
+                    <FaLinkedin/>
                   </a>
                 </li>
 
                 <li>
                   <a href="https://www.github.com/wzseba" target={'_blank'} rel="noreferrer">
-                    <FontAwesomeIcon icon={faGithub} size='2xl'/>
-                   
+                    <FaGithub/>
                   </a>
                 </li>
 
                 <li >
                   <a href="mailto:wzseba@gmail.com" target={'_blank'} rel="noreferrer">
-                    <FontAwesomeIcon icon={faEnvelope} size='2xl'/>
-                    
+                    <FaEnvelope/>
                   </a>
                 </li>
               </ul>
