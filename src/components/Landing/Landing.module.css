@@ -52,6 +52,10 @@
     color: rgb(1, 112, 79);
 }
 
+.sociales ul li a:hover{
+    color: aqua;
+}
+
 .autor{
     font-size: 2rem;
 }
