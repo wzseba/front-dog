@@ -1,0 +1,33 @@
+.card{
+    text-align: center;
+    background-color: rgb(40, 128, 98);
+    border-radius: 1rem;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+@media only screen and (max-width: 600px){
+    .card:nth-child(1){
+        margin-top: 2rem;
+    }
+}
+
+.card:hover{
+    transform: translateY(-15px);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    transition: all 0.25s 0s ease;
+}
+
+.img_dog{
+    width: 100%;
+    height: 15rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.card_h3{
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
