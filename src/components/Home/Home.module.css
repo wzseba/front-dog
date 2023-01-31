@@ -93,6 +93,11 @@
     margin: auto;
     /* margin-top: 5rem; */
 }
+
+.cargando{
+    display: flex;
+    justify-content: center;
+}
 @media only screen and (max-width: 600px){
     .container_card{
         grid-template-columns: repeat(1, 1fr);
