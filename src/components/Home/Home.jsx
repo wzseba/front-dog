@@ -7,6 +7,7 @@ import Card from '../Card/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllDogs } from '../../redux/action';
 import Pagination from '../Pagination/Pagination';
+import Loading from '../Loading/Loading';
 
 
 const Home = () => {
@@ -63,7 +64,7 @@ const Home = () => {
                           weight={d.weight} />
                   
                     )) :
-                    <h1> CARGANDO ANDO</h1>
+                    <Loading className={s.cargando}/>
                   } 
         </div>
       </main>
