@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './Home.module.css';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
@@ -6,21 +6,27 @@ import logo from './logo.png';
 import Card from '../Card/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllDogs } from '../../redux/action';
+import Pagination from '../Pagination/Pagination';
 
 
 const Home = () => {
 
   const dispatch = useDispatch();
   const allDogs = useSelector(state => state.dogs);
-  
+
+  /**Pagination */
+  const totalDogs = allDogs.length;
+  const dogsPerPage = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+  const lastIndex = currentPage * dogsPerPage // 1 * 8 = 8
+  const firstIndex = lastIndex - dogsPerPage // 8 - 8 = 0
+  const showDogsPerPage =  allDogs.slice(firstIndex, lastIndex);
 
   useEffect(()=>{
 
     !allDogs.length && dispatch(getAllDogs());
 
   },[allDogs,dispatch])
-
-
 
 
   return (
@@ -44,8 +50,8 @@ const Home = () => {
       </nav>
       <main className={s.container_main}>
         <div className={s.container_card}>
-                  { allDogs.length ?
-                    allDogs?.map(d =>(
+                  { showDogsPerPage.length ?
+                    showDogsPerPage?.map(d =>(
                    
                         <Card
                           key={d.id}
@@ -61,6 +67,12 @@ const Home = () => {
                   } 
         </div>
       </main>
+      <Pagination
+        dogsPerPage={dogsPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalDogs={totalDogs}
+      />
     </>
   )
 }
