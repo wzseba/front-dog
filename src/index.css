@@ -8,8 +8,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  
-  background-color: rgb(198, 241, 241);
+  background: linear-gradient(rgba(187, 185, 187, 0.959), rgba(221, 221, 230, 0.411));
+  /* background-color: rgb(198, 241, 209); */
 }
 ul{
   list-style: none;
