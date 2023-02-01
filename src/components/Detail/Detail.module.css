@@ -1,0 +1,32 @@
+.container_detail{
+    height: 100vh;
+    /* background-color: red; */
+}
+.container_img_data{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+}
+@media only screen and (max-width: 600px){
+    .container_img_data{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.container_img{
+    width: 40rem;
+    height: 40rem;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 600px){
+    .container_img{
+        width: 20rem;
+        height: 25rem;
+    }
+}
+
+.container_data{
+    text-align: center;
+}
