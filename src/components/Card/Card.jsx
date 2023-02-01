@@ -9,7 +9,7 @@ const Card = ({name, id, image, temperament, weight}) => {
 
   return (
     <div className={s.card}>
-        <Link to={`/dogDetail/${id}`}>
+        <Link to={`/detail/${id}`}>
 
           <img className={s.img_dog} src={image} alt="img not found" />
 
