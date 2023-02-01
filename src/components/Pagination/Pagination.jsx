@@ -30,7 +30,7 @@ const Pagination = ({dogsPerPage, totalDogs, currentPage, setCurrentPage}) => {
         {
           pageNumbers?.map(page => (
             
-            <button className={s.btn_pages} onClick={()=>onSpecificPage(page)}>{page}</button>
+            <button key={page} className={s.btn_pages} onClick={()=>onSpecificPage(page)}>{page}</button>
            
           ))
         }
