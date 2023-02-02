@@ -86,18 +86,25 @@
 }
 
 .container_card{
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     width: 60%;
-    margin: auto;
+    margin: auto; */
     /* margin-top: 5rem; */
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    gap: 1rem;/*width: calc((100% - 30px) / 4)*/
+    width: 60%;
+    margin: auto;
+
 }
 
-.cargando{
+/* .cargando{
     display: flex;
     justify-content: center;
-}
+} */
 @media only screen and (max-width: 600px){
     .container_card{
         grid-template-columns: repeat(1, 1fr);
