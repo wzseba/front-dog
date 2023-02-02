@@ -50,8 +50,10 @@ const Home = () => {
         </div>
       </nav>
       <main className={s.container_main}>
-        <div className={s.container_card}>
-                  { showDogsPerPage.length ?
+        {
+          showDogsPerPage.length ? (
+            <div className={s.container_card}>
+                  { showDogsPerPage.length &&
                     showDogsPerPage?.map(d =>(
                    
                         <Card
@@ -63,10 +65,13 @@ const Home = () => {
                           life_span={d.life_span}
                           weight={d.weight} />
                   
-                    )) :
-                    <Loading className={s.cargando}/>
+                    )) 
                   } 
-        </div>
+          </div>
+          ) :
+          <Loading/>
+        }
+        
       </main>
       <Pagination
         dogsPerPage={dogsPerPage}
