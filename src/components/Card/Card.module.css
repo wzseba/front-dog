@@ -1,5 +1,6 @@
 .card{
     text-align: center;
+    width: calc((100% - 50px) / 4);
     background-color: rgb(40, 128, 98);
     border-radius: 0.4rem;
     /* margin-bottom: 2rem; */
