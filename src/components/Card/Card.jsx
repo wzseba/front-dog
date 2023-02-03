@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import s from './Card.module.css';
 
 
-const Card = ({name, id, image, temperament, weight}) => {
+const Card = ({name, id, image, temperament}) => {
  
 
   return (
@@ -16,8 +16,7 @@ const Card = ({name, id, image, temperament, weight}) => {
             <h3 className={s.card_h3}>{name}</h3>
             {/* <p>{life_span}</p> */}
             <p className={s.card_parrafo}>{temperament}</p>
-            <p className={s.card_parrafo}>Weight: Min {weight} Max</p>
-          
+     
        </Link>
       </div>
   )
