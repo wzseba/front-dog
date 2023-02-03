@@ -62,8 +62,7 @@ const Home = () => {
                           image={d.image}
                           name={d.name}
                           temperament={d.temperament ? d.temperament : d.temperaments?.map(d => d.name)}
-                          life_span={d.life_span}
-                          weight={d.weight} />
+                        />
                   
                     )) 
                   } 
