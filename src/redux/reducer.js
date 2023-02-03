@@ -20,6 +20,12 @@ const rootReducer = (state=initialState, action)=>{
                 detail: action.payload
             }
         }
+        case "GET_TEMPERAMENTS":{
+            return{
+                ...state,
+                temperaments: action.payload
+            }
+        }
 
         default: return state;
     }

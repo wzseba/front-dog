@@ -23,8 +23,22 @@ export function getDetail(id){
             dispatch({
                 type: "GET_DETAIL",
                 payload: res.data
-            })
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
+export function getTemperaments(){
+    return async function(dispatch){
+        try {
+            const res = await axios.get('/temperaments');
+            
+            dispatch({
+                type: "GET_TEMPERAMENTS",
+                payload: res.data
+            });
         } catch (error) {
             console.log(error);
         }
