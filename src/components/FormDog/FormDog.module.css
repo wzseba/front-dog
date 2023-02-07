@@ -1,0 +1,87 @@
+.container{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   height: 100vh;
+}
+
+.title{
+    text-align: center;
+}
+
+.container_form{
+    border: 2px solid rgb(68, 148, 121);
+    padding: 2rem;
+    width: 40rem;
+    height: 40rem;
+}
+
+.container_label_input_errors{
+    height: 5rem;
+}
+
+.container_label{
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0.3rem;
+    /* margin-bottom: 1rem; */
+}
+
+.container_label input{
+    /* margin-left: 1rem; */
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+input[type='text'],
+input[type='number']{
+    border-radius: 0.25rem;
+    margin-bottom: 0.1rem;
+    /* display: block; */
+}
+
+p{
+    margin: 0;
+    color: red;
+}
+
+.container_temps{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    /* grid-column-gap: 5px;
+    grid-row-gap: 5px; */
+    /* border: 2px solid rgb(68, 148, 121); */
+    width: 40rem;
+    /* height: 40rem; */
+}
+
+.container_btn_temp{
+    background-color: rgb(68, 148, 121);
+    font-weight: bold;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0.5rem;
+    height: 5rem;
+    border-radius: 0.3rem;
+}
+
+.container_btn_temp p{
+    color: black;
+}
+
+.container_btn_temp button{
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.container_btn_temp button:hover{
+    color: aqua;
+    cursor: pointer;
+}

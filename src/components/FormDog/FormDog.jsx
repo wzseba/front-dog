@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm';
 import { getTemperaments } from '../../redux/action';
+import s from './FormDog.module.css';
 
 const initialForm = {
   name:'',
@@ -79,9 +81,15 @@ const FormDog = () => {
     }, [dispatch]);
 
   return (
-   <form onSubmit={handleSubmit}>
-    <div>
-      <label>
+    <>
+    <Link to='/home'>
+      <button>Volver</button>
+    </Link>
+    <h2 className={s.title}>Crear Raza</h2>
+    <div className={s.container}>
+   <form className={s.container_form} onSubmit={handleSubmit}>
+    <div className={s.container_label_input_errors}>
+      <label className={s.container_label}>
         Name:
         <input 
         type="text" 
@@ -95,8 +103,8 @@ const FormDog = () => {
     {errors.name && <p>{errors.name}</p>}
     </div>
 
-    <div>
-      <label>
+    <div className={s.container_label_input_errors}>
+      <label className={s.container_label}>
         Max Height:
         <input 
         type="number" 
@@ -112,8 +120,8 @@ const FormDog = () => {
       {errors.maxHeight && <p>{errors.maxHeight}</p>}
     </div>
 
-    <div>
-      <label>
+    <div className={s.container_label_input_errors}>
+      <label className={s.container_label}>
         Min Height:
         <input 
         type="number" 
@@ -129,8 +137,8 @@ const FormDog = () => {
       {errors.minHeight && <p>{errors.minHeight}</p>}
     </div>
 
-    <div>
-      <label>
+    <div className={s.container_label_input_errors}>
+      <label className={s.container_label}>
         Max Weight:
         <input 
         type="number" 
@@ -143,10 +151,11 @@ const FormDog = () => {
         onBlur={handleBlur}
         required/>
       </label>
+      {errors.maxWeight && <p>{errors.maxWeight}</p>}
     </div>
-    {errors.maxWeight && <p>{errors.maxWeight}</p>}
-    <div>
-      <label>
+
+    <div className={s.container_label_input_errors}>
+      <label className={s.container_label}>
         Min Weight:
         <input 
         type="number" 
@@ -162,19 +171,8 @@ const FormDog = () => {
       {errors.minWeight && <p>{errors.minWeight}</p>}
     </div>
 
-    <div>
-      <label>
-        Temperaments:
-        <select onChange={handleSelect}>
-          {allTemp?.map(temp =>(
-            <option key={temp.id} value={temp.name}>{temp.name}</option>
-          ))}
-        </select>
-      </label>
-    </div>
-
-    <div>
-      <label>
+    <div className={s.container_label_input_errors}>
+      <label className={s.container_label}>
         Imagen:
         <input 
         type="text" 
@@ -187,18 +185,34 @@ const FormDog = () => {
       </label>
       {errors.image && <p>{errors.image}</p>}
     </div>
-    {/* mostrar por pantalla los temperamentos elegidos */}
+
+    <div>
+      <label className={s.container_label}>
+        Temperaments:
+        <select onChange={handleSelect}>
+          {allTemp?.map(temp =>(
+            <option key={temp.id} value={temp.name}>{temp.name}</option>
+          ))}
+        </select>
+      </label>
+    </div>
+    
+    <input type='submit' value='Crear Dog'/>
+   </form>
+    
+    <div className={s.container_temps}>
     {
       form.temperaments?.map((temp,index) => (
-        <div key={index}>
+        <div className={s.container_btn_temp} key={index}>
           <p>{temp}</p>
           <button onClick={()=>handleDelete(temp)}>x</button>
         </div>
       ))
     }
-
-    <input type='submit' value='Crear Dog'/>
-   </form>
+    </div>
+    
+    </div>
+    </>
   )
 }
 
