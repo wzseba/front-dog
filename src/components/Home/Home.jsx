@@ -50,6 +50,13 @@ const Home = () => {
         </div>
       </nav>
       <main className={s.container_main}>
+        <div className={s.container_filters}>
+          <p>filtros</p>
+          <p>filtrar por temperamento</p>
+          <p>filtrar por raza de api o db</p>
+          <p>ordenar ascendentemente como descendentemente</p>
+          <p>ordenar por peso</p>
+        </div>
         {
           showDogsPerPage.length ? (
             <div className={s.container_card}>
