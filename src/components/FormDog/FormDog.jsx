@@ -82,10 +82,10 @@ const FormDog = () => {
 
   return (
     <>
-    <Link to='/home'>
-      <button>Volver</button>
-    </Link>
-    <h2 className={s.title}>Crear Raza</h2>
+      <Link className={s.btn_volver} to='/home'>
+        <button>Volver</button>
+      </Link>
+      <h2 className={s.title}>Crear Raza</h2>
     <div className={s.container}>
    <form className={s.container_form} onSubmit={handleSubmit}>
     <div className={s.container_label_input_errors}>
@@ -200,12 +200,13 @@ const FormDog = () => {
     <input type='submit' value='Crear Dog'/>
    </form>
     
+    <h2 className={s.title_temperaments}>Temperamentos</h2>
     <div className={s.container_temps}>
     {
       form.temperaments?.map((temp,index) => (
         <div className={s.container_btn_temp} key={index}>
-          <p>{temp}</p>
-          <button onClick={()=>handleDelete(temp)}>x</button>
+          <p className={s.flex_items}>{temp}</p>
+          <button className={s.flex_items} onClick={()=>handleDelete(temp)}>x</button>
         </div>
       ))
     }
