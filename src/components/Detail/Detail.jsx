@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Detail.module.css';
 import Loading from '../Loading/Loading';
-import { getDetail } from '../../redux/action';
+import { clearDetail, getDetail } from '../../redux/action';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
@@ -16,8 +16,10 @@ const Detail = () => {
     const dogDetail = useSelector(state => state.detail);
     
     useEffect(()=>{
-        dispatch(getDetail(id))
-    },[id,dispatch])
+        dispatch(getDetail(id));
+        dispatch(clearDetail());
+        // eslint-disable-next-line
+    },[])
   
 
   return (
@@ -27,7 +29,7 @@ const Detail = () => {
         </Link>
         
         {
-            dogDetail ? 
+            dogDetail.length ? 
             (
                 <div className={s.container_img_data}>
                     <div>
