@@ -44,3 +44,30 @@ export function getTemperaments(){
         }
     }
 }
+
+export function getDog(name){
+    return async function(dispatch){
+        try {
+            const res = await axios.get(`/dogs?name=${name}`);
+            dispatch({
+                type: "GET_DOG",
+                payload: res.data
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export function clearDetail(){
+    return{
+        type: "CLEAR_DETAIL"
+    }
+}
+
+export function filteredApiOrDb(payload){
+    return{
+        type: "FILTER_API_OR_DB",
+        payload
+    }
+}

@@ -1,7 +1,7 @@
 const initialState = {
     dogs: [],
-    temperaments: [],
     allDogs: [],
+    temperaments: [],
     detail: {}
 }
 
@@ -11,7 +11,13 @@ const rootReducer = (state=initialState, action)=>{
             return{
                 ...state,
                 dogs: action.payload,
-                // allDogs: action.payload
+                allDogs: action.payload//una copia del estado que siempre va a tener todos y sobre el cual vamos a trabajar para los filtros
+            }
+        }
+        case "GET_DOG":{
+            return{
+                ...state,
+                dogs: action.payload
             }
         }
         case "GET_DETAIL":{
@@ -24,6 +30,19 @@ const rootReducer = (state=initialState, action)=>{
             return{
                 ...state,
                 temperaments: action.payload
+            }
+        }
+        case "CLEAR_DETAIL":{
+            return{
+                ...state,
+                detail:{}
+            }
+        }
+        case "FILTER_API_OR_DB":{
+            const filtered = action.payload === 'db' ? state.allDogs.filter(dog => dog.createdInDb) : state.allDogs.filter(dog => !dog.createdInDb)
+            return{
+                ...state,
+                dogs: action.payload === 'all' ? state.allDogs : filtered
             }
         }
 
