@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import s from './Home.module.css';
 import { Link } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
 import logo from './logo.png';
 import Card from '../Card/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllDogs } from '../../redux/action';
 import Pagination from '../Pagination/Pagination';
 import Loading from '../Loading/Loading';
+import SearchBar from '../SearchBar/SearchBar';
+import Filters from '../Filters/Filters';
 
 
 const Home = () => {
@@ -27,19 +28,14 @@ const Home = () => {
 
     !allDogs.length && dispatch(getAllDogs());
 
-  },[allDogs,dispatch])
+  },[allDogs,dispatch]);
 
 
   return (
     <>
       <nav className={s.nav_container}>
         <div className={s.logo}><Link to='/home'><img src={logo} alt="logtipo" /></Link></div>
-        <div className={s.search_icon_container}>
-          <input className={s.input_search} type="text" placeholder='Search' />
-          <Link to='/'>
-            <FaSearch />
-          </Link>
-        </div>
+        <SearchBar/>
         <div className={s.crear_fav}>
           <Link to='/formAdd'>
             Crear raza
@@ -50,13 +46,7 @@ const Home = () => {
         </div>
       </nav>
       <main className={s.container_main}>
-        <div className={s.container_filters}>
-          <p>filtros</p>
-          <p>filtrar por temperamento</p>
-          <p>filtrar por raza de api o db</p>
-          <p>ordenar ascendentemente como descendentemente</p>
-          <p>ordenar por peso</p>
-        </div>
+        <Filters/>
         {
           showDogsPerPage.length ? (
             <div className={s.container_card}>
