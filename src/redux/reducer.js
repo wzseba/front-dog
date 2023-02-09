@@ -45,6 +45,13 @@ const rootReducer = (state=initialState, action)=>{
                 dogs: action.payload === 'all' ? state.allDogs : filtered
             }
         }
+        case "ORDER_BY_NAME":{
+            const orderName = action.payload === 'asc' ? state.allDogs.sort((a, b) => a.name.localeCompare(b.name)) : state.allDogs.sort((a, b) => b.name.localeCompare(a.name))
+            return{
+                ...state,
+                dog: orderName
+            }
+        }
 
         default: return state;
     }

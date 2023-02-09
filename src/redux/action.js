@@ -71,3 +71,10 @@ export function filteredApiOrDb(payload){
         payload
     }
 }
+
+export function orderByName(payload){
+    return {
+        type:"ORDER_BY_NAME",
+        payload
+    }
+}
