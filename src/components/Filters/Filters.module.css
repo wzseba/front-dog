@@ -1,4 +1,19 @@
 .container_filters{
     position: absolute;
     left: 3rem;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(68, 148, 121);
+    padding: 2rem;
+    width: 20rem;
+}
+
+.container_filters p{
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.container_select{
+    margin-bottom: 4rem;
 }
