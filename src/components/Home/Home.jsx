@@ -46,7 +46,10 @@ const Home = () => {
         </div>
       </nav>
       <main className={s.container_main}>
-        <Filters/>
+        <Filters
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+        />
         {
           showDogsPerPage.length ? (
             <div className={s.container_card}>
@@ -58,7 +61,7 @@ const Home = () => {
                           id={d.id}
                           image={d.image}
                           name={d.name}
-                          temperament={d.temperament ? d.temperament : d.temperaments?.map(d => d.name)}
+                          temperament={d.temperament ? d.temperament : (d.temperaments?.map(d => d.name)).toString().replaceAll(',',', ')}
                         />
                   
                     )) 
