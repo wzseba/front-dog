@@ -20,8 +20,11 @@ const Detail = () => {
         dispatch(clearDetail());
         // eslint-disable-next-line
     },[])
-  
 
+    //Setea el array que llega desde la base de datos a un string plano para poder renderizar el detail
+    //pueden llegar dos propiedades diferentes temperamet o temperaments
+    let temperaments = dogDetail[0]?.temperaments?.map(t => t.name).toString().replaceAll(',',', ');
+    
   return (
     <div className={s.container_detail}>
         <Link to='/home'>
@@ -40,7 +43,7 @@ const Detail = () => {
                         <p>Height: {dogDetail[0]?.height}</p>
                         <p>Weight: {dogDetail[0]?.weight}</p>
                         <p>Life span: {dogDetail[0]?.life_span}</p>
-                        <p>Temperament: {dogDetail[0]?.temperament}</p>
+                        <p>Temperament: {dogDetail[0]?.temperament || temperaments}</p>
                     </div>
                 </div>
             ) :
