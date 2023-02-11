@@ -46,6 +46,7 @@ export function getTemperaments(){
 }
 
 export function getDog(name){
+    
     return async function(dispatch){
         try {
             const res = await axios.get(`/dogs?name=${name}`);
@@ -75,6 +76,20 @@ export function filteredApiOrDb(payload){
 export function orderByName(payload){
     return {
         type:"ORDER_BY_NAME",
+        payload
+    }
+}
+
+export function orderByWeight(payload){
+    return {
+        type:"ORDER_BY_WEIGHT",
+        payload
+    }
+}
+
+export function filterByTemperament(payload){
+    return {
+        type:"FILTER_BY_TEMPERAMENT",
         payload
     }
 }
