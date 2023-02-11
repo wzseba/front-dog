@@ -1,45 +1,51 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { filteredApiOrDb, getTemperaments, orderByName } from '../../redux/action';
+import { filterByTemperament, filteredApiOrDb, getTemperaments, orderByName, orderByWeight } from '../../redux/action';
 import s from './Filters.module.css';
 
 
-const Filters = ({setCurrentPage }) => {
+const Filters = ({setCurrentPage, setOrder}) => {
     
    
     const dispatch = useDispatch();
     const allTemp = useSelector(state => state.temperaments);
   
- 
     useEffect(()=>{
-      dispatch(getTemperaments());
-    },[]);
+      !allTemp.length && dispatch(getTemperaments());
+    },[allTemp,dispatch]);
     
 
     const handleOrderAscDes = (e)=>{
+      e.preventDefault();
       const {value} = e.target;
       dispatch(orderByName(value));
       setCurrentPage(1);
+      setOrder(`Ordenado ${value}`);
     }
 
     const handleOrderWeight = (e)=>{
+      e.preventDefault();
       const {value} = e.target;
-
+      dispatch(orderByWeight(value));
+      setCurrentPage(1);
+      setOrder(`Ordenado ${value}`);
     }
 
     const handleFilterApiDb = (e)=>{
         const {value} = e.target;
         dispatch(filteredApiOrDb(value));
+        setCurrentPage(1)
     }
 
     const handleFilterTemp = (e)=>{
-      const {vlue} = e.target;
-
+      const {value} = e.target;
+      dispatch(filterByTemperament(value));
+      setCurrentPage(1)
     }
 
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-    }
+    // const handleSubmit = (e)=>{
+    //     e.preventDefault();
+    // }
 
 
   return (
@@ -73,8 +79,8 @@ const Filters = ({setCurrentPage }) => {
             }
           </select>
          
-          <button onClick={handleSubmit}>Limpiar</button>
-        </div>
+          {/* <button onClick={handleSubmit}>Limpiar</button> */}
+    </div>
   )
 }
 
