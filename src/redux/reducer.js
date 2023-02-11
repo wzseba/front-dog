@@ -5,7 +5,7 @@ const initialState = {
     detail: {}
 }
 
-const rootReducer = (state=initialState, action)=>{
+const rootReducer = (state = initialState, action)=>{
     switch(action.type){
         case "GET_ALL_DOGS":{
             return{
@@ -45,14 +45,36 @@ const rootReducer = (state=initialState, action)=>{
                 dogs: action.payload === 'all' ? state.allDogs : filtered
             }
         }
-        case "ORDER_BY_NAME":{
-            const orderName = action.payload === 'asc' ? state.allDogs.sort((a, b) => a.name.localeCompare(b.name)) : state.allDogs.sort((a, b) => b.name.localeCompare(a.name))
+        case "FILTER_BY_TEMPERAMENT":{
+            const allDogs = state.allDogs//filtro sobre una copia que simpre va a a tener todas las razas sin modificar mi estado principal dogs
+            const filteredTemperament = action.payload === 'all' ? allDogs : allDogs.filter(d => d.temperament?.includes(action.payload));
+            
             return{
                 ...state,
-                dog: orderName
+                dogs: filteredTemperament
             }
         }
+        case "ORDER_BY_NAME":{
+            const orderName = action.payload === 'asc' ? state.dogs.sort((a, b) => a.name.localeCompare(b.name)) : state.dogs.sort((a, b) => b.name.localeCompare(a.name))
+            return{
+                ...state,
+                dogs: orderName
+            }
+        }
+        case "ORDER_BY_WEIGHT":{
+            //a.weight.substring(0,2).trim() --> [{weight:'37 - 11'}] --> '37' => con substring(0,2) separo los primeros dos carecteres, en caso de que solo se encuentre un caracter separa ese caracter y con .trim()
+            //eliminamos espacios en blanco y obtengo como resultado el string '37' asilado de lo de mas. 
+            //Luego usamos localeCompare que se usa para comparar string pasando los argumentos options y locales => undefined -> no hay localidad definida, numeric: true -> habilitamos comparacion numerica
 
+            const orderWeight = action.payload === 'min' ? 
+                state.dogs.sort((a,b)=> a.weight.substring(0,2).trim().localeCompare(b.weight.substring(0,2).trim(), undefined, { numeric: true })) : 
+                state.dogs.sort((a,b)=> b.weight.substring(4).trim().localeCompare(a.weight.substring(4).trim(), undefined, { numeric: true }))
+           
+            return{
+                ...state,
+                dogs: orderWeight
+            }
+        }
         default: return state;
     }
 
