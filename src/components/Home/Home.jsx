@@ -15,7 +15,9 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const allDogs = useSelector(state => state.dogs);
-
+  // eslint-disable-next-line
+  const [order, setOrder] = useState('');
+ 
   /**Pagination */
   const totalDogs = allDogs.length;
   const dogsPerPage = 8;
@@ -26,7 +28,7 @@ const Home = () => {
 
   useEffect(()=>{
 
-    !allDogs.length && dispatch(getAllDogs());
+   !allDogs.length && dispatch(getAllDogs());
 
   },[allDogs,dispatch]);
 
@@ -35,7 +37,9 @@ const Home = () => {
     <>
       <nav className={s.nav_container}>
         <div className={s.logo}><Link to='/home'><img src={logo} alt="logtipo" /></Link></div>
-        <SearchBar/>
+        <SearchBar
+        setCurrentPage={setCurrentPage}
+        />
         <div className={s.crear_fav}>
           <Link to='/formAdd'>
             Crear raza
@@ -48,20 +52,20 @@ const Home = () => {
       <main className={s.container_main}>
         <Filters
         setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
+        setOrder={setOrder}
         />
         {
           showDogsPerPage.length ? (
             <div className={s.container_card}>
                   { showDogsPerPage.length &&
-                    showDogsPerPage?.map(d =>(
-                   
+                    showDogsPerPage?.map(d => (
+                  
                         <Card
                           key={d.id}
                           id={d.id}
                           image={d.image}
                           name={d.name}
-                          temperament={d.temperament ? d.temperament : (d.temperaments?.map(d => d.name)).toString().replaceAll(',',', ')}
+                          temperament={d.temperament ? d.temperament : (d.temperaments?.map(d => d.name))?.toString().replaceAll(',',', ')}
                         />
                   
                     )) 
