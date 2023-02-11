@@ -1,31 +1,36 @@
 import React, { useState } from 'react'
 import s from './SearchBar.module.css';
-import { FaSearch } from 'react-icons/fa';
+// import { FaSearch } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { getDog } from '../../redux/action';
 
 
-const SearchBar = () => {
+const SearchBar = ({setCurrentPage}) => {
 
     const dispatch = useDispatch();
     const [name,setName] = useState("");
 
-    const handleChange = (e)=>{
-        let {value} = e.target;
-        setName(value);
+    const handleInput = (e)=>{
+        e.preventDefault();
+        setName(e.target.value);
     }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(getDog(name))
-        setName("");
+        setName('');//no renderiza el estado pero si lo limpia
+        setCurrentPage(1);
     }
 
   return (
     <div className={s.search_icon_container}>
-        <form action="#">
-            <input className={s.input_search} onChange={handleChange} type="text" placeholder='Ingrese una raza' />
-            <button type="submit" onClick={handleSubmit}><FaSearch/></button>
+        <form onSubmit={handleSubmit}>
+            <input
+             className={s.input_search}
+             type="text"
+             onChange={handleInput}
+             placeholder='Ingrese una raza' />
+            <input type='submit' value='Buscar'/>
         </form>
     </div>
   )

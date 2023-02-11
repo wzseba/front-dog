@@ -3,14 +3,14 @@
     align-items: flex-end;
 }
 
-.search_icon_container a{
+/* .search_icon_container a{
     font-size: 1.2rem;
     color: rgb(68, 148, 121);
     margin-left: 1rem;
-}
-.search_icon_container a:hover{
+} */
+/* .search_icon_container a:hover{
     color: aqua;
-}
+} */
 
 .input_search{
     border-radius: .6rem;
