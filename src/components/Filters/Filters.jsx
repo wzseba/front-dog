@@ -4,7 +4,7 @@ import { filterByTemperament, filteredApiOrDb, getTemperaments, orderByName, ord
 import s from './Filters.module.css';
 
 
-const Filters = ({setCurrentPage, setOrder}) => {
+const Filters = ({setCurrentPage, setOrder, getAllDogs}) => {
     
    
     const dispatch = useDispatch();
@@ -43,9 +43,10 @@ const Filters = ({setCurrentPage, setOrder}) => {
       setCurrentPage(1)
     }
 
-    // const handleSubmit = (e)=>{
-    //     e.preventDefault();
-    // }
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        dispatch(getAllDogs());
+    }
 
 
   return (
@@ -79,7 +80,7 @@ const Filters = ({setCurrentPage, setOrder}) => {
             }
           </select>
          
-          {/* <button onClick={handleSubmit}>Limpiar</button> */}
+          <button className={s.btn_limpiar} onClick={handleSubmit}>Limpiar</button>
     </div>
   )
 }
