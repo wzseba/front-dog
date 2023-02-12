@@ -32,7 +32,6 @@ const Home = () => {
 
   },[allDogs,dispatch]);
 
-
   return (
     <>
       <nav className={s.nav_container}>
@@ -53,6 +52,7 @@ const Home = () => {
         <Filters
         setCurrentPage={setCurrentPage}
         setOrder={setOrder}
+        getAllDogs={getAllDogs}
         />
         {
           showDogsPerPage.length ? (
