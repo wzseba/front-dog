@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-export const useForm = (initialForm,validateForm)=>{
+
+export const useForm = (initialForm,validateForm,dispatch,createDog)=>{
 
    const [form,setForm] = useState(initialForm);
    const [errors,setErrors] = useState({});
@@ -14,7 +15,6 @@ export const useForm = (initialForm,validateForm)=>{
         ...form,
         [name]:value
     })
-
    }
 
    const handleBlur = (e)=>{
@@ -27,22 +27,25 @@ export const useForm = (initialForm,validateForm)=>{
     const {value} = e.target
     setForm({
             ...form,
-         temperaments:[...form.temperaments, value]
+         temperament:[...form.temperament, value]
         })
    }
 
    const handleDelete = (e)=>{
     setForm({
         ...form,
-        temperaments: form.temperaments.filter( t => t !== e)
+        temperament: form.temperament.filter( t => t !== e)
     })
    }
 
    const handleSubmit = (e)=>{
     e.preventDefault();
     setErrors(validateForm(form));
+    
     if(Object.keys(errors).length === 0){
+        dispatch(createDog(form));
         alert('Perrito Creado con exito');
+        
         /**Se formatea estado */
         setForm(initialForm);
     }else{
