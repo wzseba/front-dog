@@ -60,6 +60,20 @@ export function getDog(name){
     }
 }
 
+export function createDog(payload){
+    
+    return async function(dispatch){
+        try {
+            await axios.post('/dogs',payload);
+            return dispatch({
+                type: "CREATE_DOG"
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
 export function clearDetail(){
     return{
         type: "CLEAR_DETAIL"
