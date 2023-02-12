@@ -48,7 +48,7 @@
     border: 2px solid rgb(68, 148, 121);
     padding: 2rem;
     width: 40rem;
-    height: 42rem;
+    height: 47rem;
 }
 @media only screen and (max-width: 600px){
     .container_form{
@@ -96,9 +96,10 @@ input[type='number']{
     /* display: block; */
 }
 input[type="submit"]{
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
+    /* margin-left: 0.5rem; */
+    padding: 0.4rem 0.8rem;
     border: 0;
-    padding: 0.5rem 0.6rem;
     color: black;
     background-color: rgb(68, 148, 121);
     border-radius: 5px;
@@ -140,7 +141,7 @@ p{
 }
 @media only screen and (max-width: 600px){
     .title_temperaments{
-        top: 52rem;
+        top: 59rem;
         right: 7.5rem;
     }
 }
