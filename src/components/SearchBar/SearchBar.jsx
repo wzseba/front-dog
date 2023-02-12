@@ -18,21 +18,22 @@ const SearchBar = ({setCurrentPage}) => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(getDog(name))
-        setName('');//no renderiza el estado pero si lo limpia
+        setName("");
         setCurrentPage(1);
     }
 
   return (
-    <div className={s.search_icon_container}>
-        <form onSubmit={handleSubmit}>
+    
+        <form className={s.container_search} onSubmit={handleSubmit} >
             <input
              className={s.input_search}
              type="text"
+             value={name}
              onChange={handleInput}
              placeholder='Ingrese una raza' />
-            <input type='submit' value='Buscar'/>
+            <input type='submit' value='Buscar'/>   
         </form>
-    </div>
+   
   )
 }
 
