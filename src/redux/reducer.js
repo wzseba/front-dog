@@ -32,6 +32,11 @@ const rootReducer = (state = initialState, action)=>{
                 temperaments: action.payload
             }
         }
+        case "CREATE_DOG":{
+            return{
+                ...state
+            }
+        }
         case "CLEAR_DETAIL":{
             return{
                 ...state,
