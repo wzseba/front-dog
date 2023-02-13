@@ -107,3 +107,18 @@ export function filterByTemperament(payload){
         payload
     }
 }
+
+export function addFavorite(payload){
+    
+    return {
+        type:"ADD_FAVORITE",
+        payload
+    }
+}
+
+export function deleteFavorite(id){
+    return {
+        type:"DELETE_FAVORITE",
+        payload:id
+    }
+}

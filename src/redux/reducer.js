@@ -2,9 +2,10 @@ const initialState = {
     dogs: [],
     allDogs: [],
     temperaments: [],
+    favorites: localStorage.hasOwnProperty("favorites") ? JSON.parse(localStorage.getItem("favorites")): [],
     detail: {}
 }
-
+// localStorage.hasOwnProperty("favorites") ? JSON.parse(localStorage.getItem("favorites")): [],
 const rootReducer = (state = initialState, action)=>{
     switch(action.type){
         case "GET_ALL_DOGS":{
@@ -41,6 +42,22 @@ const rootReducer = (state = initialState, action)=>{
             return{
                 ...state,
                 detail:{}
+            }
+        }
+        case "ADD_FAVORITE":{
+            // const findFav = state.favorites.find((f) => f.id === action.payload.id);
+            // console.log(findFav)
+            return{
+                ...state,
+                favorites: [...state.favorites, action.payload]
+            }
+        }
+        case "DELETE_FAVORITE":{
+            const deleteFavorite = state.favorites.filter((fav) => fav.id !== action.payload
+			);
+            return{
+                ...state,
+                favorites: deleteFavorite
             }
         }
         case "FILTER_API_OR_DB":{
