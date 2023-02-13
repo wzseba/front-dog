@@ -9,6 +9,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import Home from './components/Home/Home';
 import Detail from './components/Detail/Detail';
 import FormDog from './components/FormDog/FormDog';
+import Favorite from './components/Favorite/Favorite';
 
 
 axios.defaults.baseURL = 'http://localhost:3001';
@@ -19,6 +20,7 @@ function App() {
       <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/home" component={Home} />
+      <Route exact path="/favorite" component={Favorite} />
       <Route exact path="/detail/:id" component={Detail} />
       <Route exact path="/formAdd" component={FormDog} />
       <Route path="/*" component={PageNotFound} /> 
