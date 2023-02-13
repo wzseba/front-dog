@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './Detail.module.css';
 import Loading from '../Loading/Loading';
-import { clearDetail, getDetail } from '../../redux/action';
+import { addFavorite, clearDetail, getDetail } from '../../redux/action';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-
 
 
 const Detail = () => {
@@ -13,14 +12,26 @@ const Detail = () => {
     const {id} = useParams();
     
     const dispatch = useDispatch();
+    const [open, setOpen] = useState(false)
     const dogDetail = useSelector(state => state.detail);
     
     useEffect(()=>{
         dispatch(getDetail(id));
         dispatch(clearDetail());
-        // eslint-disable-next-line
-    },[])
+    //    return ()=>{
+    //     dispatch(clearDetail());
+    //    } 
+    },[dispatch,id])
 
+    // const findFavorite = favorites.find(fav => fav.id === id);
+
+    const handleFavorite = (e)=>{
+        e.preventDefault();
+        // alert('Perrito agregado a tu Favoritos :-)')//bug: habilitando alert se puede agregar al mismo perro las veces que quiera
+        dispatch(addFavorite(dogDetail[0]))
+        setOpen(true)
+    }
+   
     //Setea el array que llega desde la base de datos a un string plano para poder renderizar el detail
     //pueden llegar dos propiedades diferentes temperamet o temperaments
     // let temperaments = dogDetail[0]?.temperaments?.map(t => t.name).toString().replaceAll(',',', ');
@@ -30,7 +41,9 @@ const Detail = () => {
         <Link to='/home'>
             <button className={s.btn_volver}>Volver</button>
         </Link>
-        <button className={s.btn_favoritos}>Agregar a Favoritos</button>
+        
+        <button onClick={handleFavorite} className={s.btn_favoritos} disabled={ open ? true : false}>Agregar a Favoritos</button>
+      
         {
             dogDetail.length ? 
             (
