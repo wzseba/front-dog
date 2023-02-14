@@ -29,9 +29,9 @@ const Pagination = ({dogsPerPage, totalDogs, currentPage, setCurrentPage}) => {
       <ul className={s.container_ul}>
         {
           pageNumbers?.map(page => (
+         
+            <button key={page} className={currentPage === page ? s.active : s.btn_pages}  onClick={()=>onSpecificPage(page)}>{page}</button>
             
-            <button key={page} className={s.btn_pages} onClick={()=>onSpecificPage(page)}>{page}</button>
-           
           ))
         }
       </ul>
