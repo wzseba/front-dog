@@ -55,6 +55,7 @@
     .container_img_data{
         flex-direction: column;
         justify-content: center;
+        margin-top: 3rem;
     }
 }
 
