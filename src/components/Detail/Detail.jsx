@@ -17,10 +17,10 @@ const Detail = () => {
     
     useEffect(()=>{
         dispatch(getDetail(id));
+        // dispatch(clearDetail());
+       return ()=>{
         dispatch(clearDetail());
-    //    return ()=>{
-    //     dispatch(clearDetail());
-    //    } 
+       } 
     },[dispatch,id])
 
     // const findFavorite = favorites.find(fav => fav.id === id);
