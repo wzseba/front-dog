@@ -1,31 +1,138 @@
+/* .container_favorito{
+    height: auto;
+} */
+.fav_title{
+    text-align: center;
+    font-size: 4rem;
+    padding: 1rem;
+}
+.btn_volver button{
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: rgb(68, 148, 121);
+    padding: 0.6rem 2.5rem;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    color: black;
+    text-align: center;
+}
+
+.btn_volver button:hover{
+    color: aqua;
+}
 
 .container_fav{
     position: relative;
     /* background-color: aqua; */
     width: 80%;
     margin: 0 auto;
-    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .content_card_fav{
-    width: calc((100% - 50px) / 4);
-    height: 10rem;
+    /* width: calc((100% - 50px) / 4); */
+    /* height: 10rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(68, 148, 121);
+}
+@media only screen and (max-width: 600px){
+    .content_card_fav{
+        flex-direction: column;
+    }
 }
 
 .fav_img{
-    width: 100%;
-    height: 15rem;
+    width: 15rem;
+    height: 10rem;
 }
 .fav_name{
     font-size: 1.5rem;
+    color: rgb(68, 148, 121);
+}
+.fav_name span{
+    color: black;
+    font-size: 1.7rem;
 }
 .fav_height{
     color: blueviolet;
 }
+.fav_height span{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 .fav_weight{
-    color: brown;
+    color: blueviolet;
+}
+.fav_weight span{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fav_btn_delete{
+    font-size: 1rem;
+    margin-right: 1rem;
+    background: none;
+    color: rgb(68, 148, 121);
+}
+.fav_btn_delete:hover{
+    cursor: pointer;
+    color: red;
+}
+
+/* .fav_delete_animation{
+    position: relative;
+    left: 0;
+    transition: left 5s cubic-bezier(0, 0, 1, 1);
+} */
+
+@media only screen and (max-width: 600px){
+    .btn_volver button{
+        font-size: .9rem;
+        left: 8rem;
+        top: 8.5rem;
+    }
+    .fav_title{
+        margin-bottom: 3rem;
+        font-size: 3rem;
+    }
+    .fav_img{
+        width: 100%;
+    }
+    .fav_name{
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    .fav_name span{
+        font-size: 1.3rem;
+    }
+    .fav_height{
+        font-size: 0.9rem;
+    }
+    .fav_height span{
+        font-size: 1.1rem;
+    }
+    .fav_weight{
+        font-size: 0.9rem;
+    }
+    .fav_weight span{
+        font-size: 1.1rem;
+    }
+    .fav_btn_delete{
+        margin: 0;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }
