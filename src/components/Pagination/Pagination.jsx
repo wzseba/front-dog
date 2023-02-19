@@ -24,7 +24,7 @@ const Pagination = ({dogsPerPage, totalDogs, currentPage, setCurrentPage}) => {
 
   return (
     <nav className={s.container_nav}>
-      <button className={s.btn} disabled={ currentPage === 1 ? true : false} onClick={ onPreviusPage }>Anterior</button>
+      <button className={ currentPage === 1 ? s.btn_not : s.btn} disabled={ currentPage === 1 ? true : false} onClick={ onPreviusPage }>Anterior</button>
       
       <ul className={s.container_ul}>
         {
@@ -36,7 +36,7 @@ const Pagination = ({dogsPerPage, totalDogs, currentPage, setCurrentPage}) => {
         }
       </ul>
 
-      <button className={s.btn} disabled={ currentPage >= pageNumbers.length ? true : false} onClick={ onNextPage }>Siguiente</button>
+      <button className={currentPage >= pageNumbers.length ? s.btn_not : s.btn} disabled={ currentPage >= pageNumbers.length ? true : false} onClick={ onNextPage }>Siguiente</button>
     </nav>
   )
 }

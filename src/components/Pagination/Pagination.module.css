@@ -68,3 +68,6 @@
 .btn:hover{
     color: aqua;
 }
+.btn_not:hover{
+    cursor: not-allowed;
+}
