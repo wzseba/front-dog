@@ -24,10 +24,10 @@ const Detail = () => {
     },[dispatch,id])
 
     // const findFavorite = favorites.find(fav => fav.id === id);
-
+    //bug: cada vez que se actuliza la pagina o se vuelve a entrar al mismo detalle se puede agregar al mismo tantas veces se monta el componente
     const handleFavorite = (e)=>{
         e.preventDefault();
-        // alert('Perrito agregado a tu Favoritos :-)')//bug: habilitando alert se puede agregar al mismo perro las veces que quiera
+        alert('Perrito agregado a tu Favoritos :-)')
         dispatch(addFavorite(dogDetail[0]))
         setOpen(true)
     }
