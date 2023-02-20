@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react'
 import s from './Detail.module.css';
 import Loading from '../Loading/Loading';
