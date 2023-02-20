@@ -15,7 +15,11 @@ const Detail = () => {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false)
     const dogDetail = useSelector(state => state.detail);
-    
+    const favorites = useSelector(state => state.favorites);
+
+    /**Verifico si la raza ya se encuentra en mi estado global */
+    const findFav = favorites?.find(f => f.id.toString() === id.toString());
+
     useEffect(()=>{
         dispatch(getDetail(id));
         // dispatch(clearDetail());
@@ -24,13 +28,14 @@ const Detail = () => {
        } 
     },[dispatch,id])
 
-    // const findFavorite = favorites.find(fav => fav.id === id);
-    //bug: cada vez que se actuliza la pagina o se vuelve a entrar al mismo detalle se puede agregar al mismo tantas veces se monta el componente
     const handleFavorite = (e)=>{
         e.preventDefault();
-        alert('Perrito agregado a tu Favoritos :-)')
-        dispatch(addFavorite(dogDetail[0]))
-        setOpen(true)
+        if(findFav){
+            setOpen(true);
+            return alert('EL PERRITO YA ESTA UN TUS FAVORITOS ;-)');
+        }
+        dispatch(addFavorite(dogDetail[0]));
+        alert('PERRITO AGREGADO A TUS FAVORITOS :-)');
     }
    
     //Setea el array que llega desde la base de datos a un string plano para poder renderizar el detail
