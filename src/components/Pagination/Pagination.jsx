@@ -2,7 +2,9 @@ import React from 'react';
 import s from './Pagination.module.css';
 
 
-const Pagination = ({dogsPerPage, totalDogs, currentPage, setCurrentPage}) => {
+const Pagination = (prop) => {
+
+  const {dogsPerPage, totalDogs, currentPage, setCurrentPage} = prop;
 
   const pageNumbers = [];
   const cardPerPage = Math.ceil(totalDogs / dogsPerPage);
