@@ -1,4 +1,4 @@
-
+import React from 'react';
 import image from '../../image/dogi.gif';
 import s from './Loading.module.css';
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByTemperament, filteredApiOrDb, getTemperaments, orderByName, orderByWeight } from '../../redux/action';
