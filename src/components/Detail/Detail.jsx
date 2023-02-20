@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import s from './Detail.module.css';
 import Loading from '../Loading/Loading';
 import { addFavorite, clearDetail, getDetail } from '../../redux/action';
