@@ -13,7 +13,8 @@ import FormDog from './components/FormDog/FormDog';
 import Favorite from './components/Favorite/Favorite';
 
 
-axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://server-dogback.onrender.com/';
 
 function App() {
   return (
