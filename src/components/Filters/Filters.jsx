@@ -5,8 +5,9 @@ import { filterByTemperament, filteredApiOrDb, getTemperaments, orderByName, ord
 import s from './Filters.module.css';
 
 
-const Filters = ({setCurrentPage, setOrder, getAllDogs}) => {
+const Filters = (prop) => {
     
+  const {setCurrentPage, setOrder, getAllDogs} = prop;
    
     const dispatch = useDispatch();
     const allTemp = useSelector(state => state.temperaments);

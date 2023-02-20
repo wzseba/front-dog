@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
 import { getDog } from '../../redux/action';
 
 
-const SearchBar = ({setCurrentPage}) => {
+const SearchBar = (prop) => {
+
+    const {setCurrentPage} = prop;
 
     const dispatch = useDispatch();
     const [name,setName] = useState("");
