@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import s from './Card.module.css';
 
 
-const Card = (props) => {
+const Card = (prop) => {
 
- const {name, id, image, temperament} = props;
+ const {name, id, image, temperament} = prop;
 
   return (
     <div className={s.card}>
