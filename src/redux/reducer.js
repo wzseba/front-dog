@@ -2,7 +2,7 @@ const initialState = {
     dogs: [],
     allDogs: [],
     temperaments: [],
-    favorites: localStorage.hasOwnProperty("favorites") ? JSON.parse(localStorage.getItem("favorites")): [],
+    favorites: localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")): [],
     detail: {}
 }
 // localStorage.hasOwnProperty("favorites") ? JSON.parse(localStorage.getItem("favorites")): [],
