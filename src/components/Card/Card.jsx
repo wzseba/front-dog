@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import s from './Card.module.css';
 
 
-const Card = ({name, id, image, temperament}) => {
- 
+const Card = (props) => {
+
+ const {name, id, image, temperament} = props;
+
   return (
     <div className={s.card}>
         <Link to={`/detail/${id}`}>
