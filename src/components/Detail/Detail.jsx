@@ -19,9 +19,10 @@ const Detail = () => {
 
     /**Verifico si la raza ya se encuentra en mi estado global */
     const findFav = favorites?.find(f => f.id.toString() === id.toString());
-
+    
     useEffect(()=>{
         dispatch(getDetail(id));
+        if(findFav) setOpen(true);
         // dispatch(clearDetail());
        return ()=>{
         dispatch(clearDetail());
@@ -31,7 +32,6 @@ const Detail = () => {
     const handleFavorite = (e)=>{
         e.preventDefault();
         if(findFav){
-            setOpen(true);
             return alert('EL PERRITO YA ESTA UN TUS FAVORITOS ;-)');
         }
         dispatch(addFavorite(dogDetail[0]));
@@ -44,11 +44,11 @@ const Detail = () => {
     
   return (
     <div className={s.container_detail}>
-        <Link to='/home'>
-            <button className={s.btn_volver}>Volver</button>
+        <Link className={s.btn_volver} to='/home'>
+            <button>Volver</button>
         </Link>
         
-        <button onClick={handleFavorite} className={s.btn_favoritos} disabled={ open ? true : false}>Agregar a Favoritos</button>
+       
       
         {
             dogDetail.length ? 
@@ -57,13 +57,17 @@ const Detail = () => {
                     <div>
                         <img className={s.container_img} src={dogDetail[0]?.image} alt={dogDetail[0]?.name} />
                     </div>
-                    <div className={s.container_data}>
-                        <h1 className={s.container_data_title}>{dogDetail[0]?.name}</h1>
-                        <p className={s.data_title_parrafo}><span>Height:</span> {dogDetail[0]?.height}</p>
-                        <p className={s.data_title_parrafo}><span>Weight:</span> {dogDetail[0]?.weight}</p>
-                        <p className={s.data_title_parrafo}><span>Life span:</span> {dogDetail[0]?.life_span}</p>
-                        <p className={s.data_title_parrafo}><span>Temperament:</span> {dogDetail[0]?.temperament}</p>
+                    <div className={s.container_data_btn}>
+                        <div className={s.container_data}>
+                            <h1 className={s.container_data_title}>{dogDetail[0]?.name}</h1>
+                            <p className={s.data_title_parrafo}><span>Height:</span> {dogDetail[0]?.height}</p>
+                            <p className={s.data_title_parrafo}><span>Weight:</span> {dogDetail[0]?.weight}</p>
+                            <p className={s.data_title_parrafo}><span>Life span:</span> {dogDetail[0]?.life_span}</p>
+                            <p className={s.data_title_parrafo}><span>Temperament:</span> {dogDetail[0]?.temperament}</p>
+                        </div>
+                        <button onClick={handleFavorite} className={open ? s.btn_not : s.btn_favoritos} disabled={ open ? true : false}>Agregar a Favoritos</button>
                     </div>
+                    
                 </div> 
             ) :
             <Loading/>
