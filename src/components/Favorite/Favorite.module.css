@@ -1,6 +1,6 @@
-/* .container_favorito{
+.container_favorito{
     height: auto;
-} */
+}
 .fav_title{
     text-align: center;
     font-size: 4rem;
@@ -135,4 +135,12 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
+}
+
+.sin_perritos{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    margin-top: 2.5rem;
 }
