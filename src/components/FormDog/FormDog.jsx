@@ -120,7 +120,7 @@ const FormDog = () => {
         name='maxheight'
         min="4" 
         max="140"
-        value={form.maxHeight}
+        value={form.maxheight}
         placeholder='Altura Maxima'
         onChange={handleChange}
         onBlur={handleBlur}
@@ -154,7 +154,7 @@ const FormDog = () => {
         name='maxweight'
         min="4" 
         max="90"
-        value={form.maxWeight}
+        value={form.maxweight}
         placeholder='Peso Maximo'
         onChange={handleChange}
         onBlur={handleBlur}
