@@ -1,4 +1,4 @@
-.btn_volver{
+.btn_volver button{
     font-size: 1rem;
     font-weight: bold;
     background-color: rgb(68, 148, 121);
@@ -8,14 +8,18 @@
     left: 4rem;
     top: 3rem;
 }
-.btn_volver:hover{
+.btn_volver button:hover{
     color: aqua;
     cursor: pointer;
 }
 @media only screen and (max-width: 600px){
-    .btn_volver{
-        left: 2.1rem;
-        top: 2rem;
+    a{
+        width:fit-content;
+    }
+    .btn_volver button{
+        /* position: static; */
+        left: 2rem;
+        top: 1rem;
     }
 }
 
@@ -25,14 +29,26 @@
     background-color: rgb(68, 148, 121);
     padding: 0.6rem 2.5rem;
     border-radius: 0.2rem;
-    position: absolute;
+    height: 2.5rem;
+    margin-top: 1.5rem;
+    /* position: absolute;
     left: 76rem;
-    top: 42rem;
+    top: 42rem; */
 }
 
 .btn_favoritos:hover{
     color: aqua;
     cursor: pointer;
+}
+
+.btn_not{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.6rem 2.5rem;
+    border-radius: 0.2rem;
+    height: 2.5rem;
+    margin-top: 1.5rem;
+    cursor: not-allowed;
 }
 @media only screen and (max-width: 600px){
     .btn_favoritos{
@@ -45,6 +61,13 @@
     height: 100vh;
     /* background-color: red; */
 }
+@media only screen and (max-width: 600px){
+    .container_detail{
+        /* height: auto; */
+        display: flex;
+        flex-direction: column;
+    }
+}
 .container_img_data{
     display: flex;
     justify-content: space-evenly;
@@ -55,7 +78,6 @@
     .container_img_data{
         flex-direction: column;
         justify-content: center;
-        margin-top: 3rem;
     }
 }
 
@@ -67,8 +89,14 @@
 @media only screen and (max-width: 600px){
     .container_img{
         width: 20rem;
-        height: 25rem;
+        height: 17rem;
     }
+}
+
+.container_data_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container_data{
