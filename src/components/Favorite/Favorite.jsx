@@ -46,7 +46,7 @@ const Favorite = () => {
             }
         </div>
         ) : 
-        <h3>No hay Perritos</h3>
+        <h3 className={s.sin_perritos}>No hay Perritos</h3>
       }
       
     </div>
