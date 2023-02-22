@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 import s from './SearchBar.module.css';
-// import { FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { getDog } from '../../redux/action';
 
@@ -34,7 +34,8 @@ const SearchBar = (prop) => {
              value={name}
              onChange={handleInput}
              placeholder='Ingrese una raza' />
-            <input type='submit' value='Buscar'/>   
+            {/* <input type='submit' value='Buscar'/>    */}
+            <button className={s.btn_search} type="submit"><FaSearch/></button>
         </form>
    
   )

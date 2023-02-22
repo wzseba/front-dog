@@ -8,10 +8,24 @@
     /* border-color: rgb(68, 148, 121); */
     border: 3px solid rgb(68, 148, 121);
     font-size: 1.2rem;
+    margin-right: 1rem;
 }
 
 .container_search input[type="submit"] {
     /* padding: 0; */
     height: 2rem;
     margin-left: 1rem;
+}
+
+.btn_search{
+    background: none;
+    color: rgb(68, 148, 121);
+    font-size: 1.4rem;
+    margin: 0;
+    padding: 0;
+}
+
+.btn_search:hover{
+    color: aqua;
+    cursor: pointer;
 }
