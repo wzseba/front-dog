@@ -14,7 +14,8 @@ import Favorite from './components/Favorite/Favorite';
 
 
 // axios.defaults.baseURL = 'http://localhost:3001';
-axios.defaults.baseURL = 'https://server-dogback.onrender.com/';
+// axios.defaults.baseURL = 'https://server-dogback.onrender.com/';
+axios.defaults.baseURL = 'https://dog-back-production-2fd6.up.railway.app/';
 
 function App() {
   return (
