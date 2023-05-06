@@ -27,14 +27,14 @@ export const useForm = (initialForm,validateForm,dispatch,createDog)=>{
     const {value} = e.target
     setForm({
             ...form,
-         temperament:[...form.temperament, value]
+         temperaments:[...form.temperaments, value]
         })
    }
 
    const handleDelete = (e)=>{
     setForm({
         ...form,
-        temperament: form.temperament.filter( t => t !== e)
+        temperaments: form.temperaments.filter( t => t !== e)
     })
    }
 
