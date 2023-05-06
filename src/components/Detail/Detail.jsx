@@ -62,7 +62,7 @@ const Detail = () => {
                             <h1 className={s.container_data_title}>{dogDetail[0]?.name}</h1>
                             <p className={s.data_title_parrafo}><span>Height:</span> {dogDetail[0]?.height}</p>
                             <p className={s.data_title_parrafo}><span>Weight:</span> {dogDetail[0]?.weight}</p>
-                            <p className={s.data_title_parrafo}><span>Life span:</span> {dogDetail[0]?.life_span}</p>
+                            <p className={s.data_title_parrafo}><span>Life span:</span> {dogDetail[0]?.lifeSpan}</p>
                             <p className={s.data_title_parrafo}><span>Temperament:</span> {dogDetail[0]?.temperament}</p>
                         </div>
                         <button onClick={handleFavorite} className={open ? s.btn_not : s.btn_favoritos} disabled={ open ? true : false}>Agregar a Favoritos</button>
