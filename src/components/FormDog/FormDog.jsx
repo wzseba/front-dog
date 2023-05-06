@@ -12,8 +12,8 @@ const initialForm = {
   maxheight:'',
   minweight:'',
   maxweight:'',
-  life_span:'',
-  temperament:[],
+  lifeSpan:'',
+  temperaments:[],
   image:''
 }
 
@@ -55,10 +55,10 @@ const validationsForm = (form)=>{
   }
 
   /**ESPERANZA DE VIDA */
-  if(!form.life_span.trim()){
-    errors.life_span = 'No puede ir vacio'
-  }else if(Number(form.life_span) < 1 || Number(form.life_span) > 40){
-    errors.life_span = 'La esperanza de vida debe ser mayor a 1 y menor de 40'
+  if(!form.lifeSpan?.trim()){
+    errors.lifeSpan = 'No puede ir vacio'
+  }else if(Number(form.lifeSpan) < 1 || Number(form.lifeSpan) > 40){
+    errors.lifeSpan = 'La esperanza de vida debe ser mayor a 1 y menor de 40'
   }
 
   if(form.image.includes(' ')){
@@ -185,16 +185,16 @@ const FormDog = () => {
         Life Span:
         <input 
         type="number" 
-        name='life_span'
+        name='lifeSpan'
         min="1" 
         max="40"
-        value={form.life_span}
+        value={form.lifeSpan}
         placeholder='Esperanza de vida'
         onChange={handleChange}
         onBlur={handleBlur}
         required/>
       </label>
-      {errors.life_span && <p>{errors.life_span}</p>}
+      {errors.lifeSpan && <p>{errors.lifeSpan}</p>}
     </div>
 
     <div className={s.container_label_input_errors}>
@@ -229,7 +229,7 @@ const FormDog = () => {
     <h2 className={s.title_temperaments}>Temperamentos</h2>
     <div className={s.container_temps}>
     {
-      form.temperament?.map((temp,index) => (
+      form.temperaments?.map((temp,index) => (
         <div className={s.container_btn_temp} key={index}>
           <p className={s.flex_items}>{temp}</p>
           <button className={s.flex_items} onClick={()=>handleDelete(temp)}>x</button>
