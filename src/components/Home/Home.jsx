@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <>
       <nav className={s.nav_container}>
-        <div className={s.logo}><Link to='/home'><img src={logo} alt="logtipo" /></Link></div>
+        <div className={s.logo}><Link to='/'><img src={logo} alt="logtipo" /></Link></div>
         <SearchBar
         setCurrentPage={setCurrentPage}
         />
