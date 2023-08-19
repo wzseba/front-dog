@@ -19,7 +19,7 @@ export function getDetail(id){
     return async function(dispatch){
         try {
             const res = await axios.get(`dogs/${id}`);
-            console.log(res);
+          return  console.log(res);
             dispatch({
                 type: "GET_DETAIL",
                 payload: res.data
