@@ -60,8 +60,8 @@ const Detail = () => {
                     <div className={s.container_data_btn}>
                         <div className={s.container_data}>
                             <h1 className={s.container_data_title}>{dogDetail[0]?.name}</h1>
-                            <p className={s.data_title_parrafo}><span>Height:</span> {dogDetail[0]?.height}</p>
-                            <p className={s.data_title_parrafo}><span>Weight:</span> {dogDetail[0]?.weight}</p>
+                            <p className={s.data_title_parrafo}><span>Height:</span> {dogDetail[0]?.height} m.</p>
+                            <p className={s.data_title_parrafo}><span>Weight:</span> {dogDetail[0]?.weight} k.</p>
                             <p className={s.data_title_parrafo}><span>Life span:</span> {dogDetail[0]?.lifeSpan}</p>
                             <p className={s.data_title_parrafo}><span>Temperament:</span> {dogDetail[0]?.temperament}</p>
                         </div>
