@@ -61,12 +61,6 @@ const validationsForm = (form)=>{
     errors.lifeSpan = 'La esperanza de vida debe ser mayor a 1 y menor de 40'
   }
 
-  if(form.image.includes(' ')){
-    errors.image = 'No puede contener espacios vacios'
-  }else if(!regexUrl.test(form.image)){
-    errors.image = 'La url que ingreso no es un formato valido'
-  }
-
   return errors;
 }
 
