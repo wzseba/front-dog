@@ -74,6 +74,18 @@ export function createDog(payload){
     }
 }
 
+export function loginForm(payload){
+    
+    return async function(){
+        try {
+            await axios.post('/login',payload);
+            console.log('data enviada correctamente!!!')
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
 export function clearDetail(){
     return{
         type: "CLEAR_DETAIL"
