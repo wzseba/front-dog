@@ -27,7 +27,7 @@ const Detail = () => {
        return ()=>{
         dispatch(clearDetail());
        } 
-    },[dispatch,id])
+    },[dispatch,id,findFav])
 
     const handleFavorite = (e)=>{
         e.preventDefault();
