@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export const useForm = (initialForm,validateForm,dispatch,createDog)=>{
+export const useForm = (initialForm,validateForm,dispatch,enviarData)=>{
 
    const [form,setForm] = useState(initialForm);
    const [errors,setErrors] = useState({});
@@ -40,10 +40,16 @@ export const useForm = (initialForm,validateForm,dispatch,createDog)=>{
 
    const handleSubmit = (e)=>{
     e.preventDefault();
+
+    if(e.target[2]){
+        console.log('enviando form al backend ', form)
+        dispatch(enviarData(form));
+    }
+
     setErrors(validateForm(form));
     
     if(Object.keys(errors).length === 0){
-        dispatch(createDog(form));
+        dispatch(enviarData(form));
         alert('Perrito Creado con exito');
         
         /**Se formatea estado */
