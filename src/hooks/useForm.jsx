@@ -44,6 +44,7 @@ export const useForm = (initialForm,validateForm,dispatch,enviarData)=>{
     if(e.target[2]){
         console.log('enviando form al backend ', form)
         dispatch(enviarData(form));
+        return;
     }
 
     setErrors(validateForm(form));
