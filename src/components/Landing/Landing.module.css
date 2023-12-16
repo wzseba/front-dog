@@ -34,7 +34,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 0.3rem;
-    /* width: 90%; */
     margin: 0 auto;
 }
 
@@ -88,7 +87,6 @@
 }
 
 .link{
-    /* text-align: center; */
     padding-top: 5rem;
 }
 
