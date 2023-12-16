@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import {Input, Button, Label} from "../ui";
+
 import s from "./FormLogin.module.css";
 
 const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
@@ -8,9 +10,9 @@ const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
       <h1>DogLandia</h1>
       <div className={s.link}>
         <form className={s.formulario} onSubmit={handleSubmit}>
-          <label className={s.container_label}>
+          <Label className={s.container_label}>
             Email:
-            <input
+            <Input
               type="email"
               name="email"
               placeholder="Email"
@@ -18,12 +20,12 @@ const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
               onBlur={handleBlur}
               required
             />
-          </label>
+          </Label>
           {errors?.email && <p className={s.errorParrafo}>{errors?.email}</p>}
 
-          <label className={s.container_label}>
+          <Label className={s.container_label}>
             Password:
-            <input
+            <Input
               type="password"
               name="password"
               placeholder="Password"
@@ -31,22 +33,23 @@ const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
               onBlur={handleBlur}
               required
             />
-          </label>
+          </Label>
+
           {errors?.password && (
             <p className={s.errorParrafo}>{errors?.password}</p>
           )}
           <div className={s.submit}>
             <abbr title="Los usuarios pueden crear razas">
-              <input type="submit" value="Iniciar Sesion" />
+              <Input type="submit" value="Iniciar Sesion" />
             </abbr>
             <abbr title="Los usuarios no pueden crear razas">
-              <Link to="/home">Invitado</Link>
+              <Button to="/home">Invitado</Button>
             </abbr>
           </div>
         </form>
-        <Link className={s.crearCuenta} to="/register">
+        <Button className={s.crearCuenta} to="/register">
           Crear una cuenta
-        </Link>
+        </Button>
       </div>
     </div>
   );
