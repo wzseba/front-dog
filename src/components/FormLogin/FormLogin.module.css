@@ -1,0 +1,92 @@
+
+.iz{
+    background: linear-gradient(rgba(187, 185, 187, 0.959), rgba(221, 221, 230, 0.411));
+    text-align: center;
+    color: azure;
+    font-size: 2rem;
+    
+}
+.de{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.de h1{
+    color: white;
+    font-size: 5rem;
+}
+
+.de a{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.container_label{
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.3rem;
+    /* width: 90%; */
+    margin: 0 auto;
+}
+
+.formulario{
+    width: 25rem;
+}
+
+.formulario label{
+    text-align: left;
+    padding-top: 1rem;
+}
+
+.formulario input{
+    border-style: none;
+    padding: 0.3rem;
+    border-radius: 3px;
+}
+
+.errorParrafo{
+    margin-top: 0.5rem;
+    text-align: justify;
+}
+
+.submit{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.submit input{
+    padding: 0.5rem 1rem !important;
+}
+
+.submit a{
+    padding: 0.4rem 0.8rem;
+    border: 0;
+    color: black;
+    background-color: rgb(68, 148, 121);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 0 !important;
+}
+
+.submit abbr{
+    text-decoration: none;
+}
+
+.submit a:hover{
+    color: aqua;
+}
+
+.link{
+    /* text-align: center; */
+    padding-top: 5rem;
+}
+
+.crearCuenta{
+    margin-top: 2rem;
+    width: fit-content;
+}
