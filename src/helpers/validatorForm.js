@@ -50,7 +50,14 @@ export const validationsForm = (form)=>{
     let errorsLogin = {};
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const regexPassword = /^(?=.*\d)(?=.*[az])(?=.*[AZ]).{4,8}$/;
+    const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{3,15}$/;
+    const regexPassword =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@.#$!%*?&]{6,15}$/;
+
+    if(form.name.includes(' ')){
+      errors.name = 'No puede contener espacios vacios'
+    }else if(!regexName.test(form.name.trim())){
+      errors.name = 'El campo solo acepta letras y un rango de 3 a 15 caracteres'
+    }
 
     if(form.email.includes(' ')){
       errorsLogin.email = 'No puede contener espacios vacios'
