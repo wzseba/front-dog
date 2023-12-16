@@ -1,24 +1,29 @@
 import React from "react";
-import s from "../FormLogin/FormLogin.module.css";
+import s from "./Register.module.css";
 import { useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { validatorLogin } from "../../helpers/validatorForm";
 import { loginForm } from "../../redux/action";
-
+import { Button, Input } from "../ui";
 
 const initialRegister = {
-  name:'',
-  email:'',
-  password:''
-}
+  name: "",
+  email: "",
+  password: "",
+};
 
 const Register = () => {
   const dispatch = useDispatch();
-  
-  const {handleSubmit, handleBlur, handleChange, errors} = useForm(initialRegister, validatorLogin, dispatch, loginForm);
+
+  const { handleSubmit, handleBlur, handleChange, errors } = useForm(
+    initialRegister,
+    validatorLogin,
+    dispatch,
+    loginForm
+  );
   return (
-    <div>
-      <h1>DogLandia</h1>
+    <div className={s.container}>
+      <h1>DogLandia Crear Usuario</h1>
       <div className={s.link}>
         <form className={s.formulario} onSubmit={handleSubmit}>
           <label className={s.container_label}>
@@ -60,9 +65,10 @@ const Register = () => {
             <p className={s.errorParrafo}>{errors?.password}</p>
           )}
           <div className={s.submit}>
-            <abbr title="Los usuarios pueden crear razas">
-              <input type="submit" value="Crear Usuario" />
-            </abbr>
+            <Input type="submit" value="Crear Usuario" />
+            <Button className={s.crearCuenta} to="/">
+              Volver
+            </Button>
           </div>
         </form>
       </div>
