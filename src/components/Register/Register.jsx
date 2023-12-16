@@ -2,9 +2,9 @@ import React from "react";
 import s from "./Register.module.css";
 import { useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
-import { validatorLogin } from "../../helpers/validatorForm";
+import { validatorRegister } from "../../helpers/validatorForm";
 import { loginForm } from "../../redux/action";
-import { Button, Input } from "../ui";
+import { Button, Input, Label } from "../ui";
 
 const initialRegister = {
   name: "",
@@ -17,7 +17,7 @@ const Register = () => {
 
   const { handleSubmit, handleBlur, handleChange, errors } = useForm(
     initialRegister,
-    validatorLogin,
+    validatorRegister,
     dispatch,
     loginForm
   );
@@ -26,9 +26,9 @@ const Register = () => {
       <h1>DogLandia Crear Usuario</h1>
       <div className={s.link}>
         <form className={s.formulario} onSubmit={handleSubmit}>
-          <label className={s.container_label}>
+          <Label className={s.container_label}>
             Name:
-            <input
+            <Input
               type="text"
               name="name"
               placeholder="Name"
@@ -36,10 +36,11 @@ const Register = () => {
               onBlur={handleBlur}
               required
             />
-          </label>
-          <label className={s.container_label}>
+          </Label>
+          {errors?.name && <p className={s.errorParrafo}>{errors?.name}</p>}
+          <Label className={s.container_label}>
             Email:
-            <input
+            <Input
               type="email"
               name="email"
               placeholder="Email"
@@ -47,12 +48,12 @@ const Register = () => {
               onBlur={handleBlur}
               required
             />
-          </label>
+          </Label>
           {errors?.email && <p className={s.errorParrafo}>{errors?.email}</p>}
 
-          <label className={s.container_label}>
+          <Label className={s.container_label}>
             Password:
-            <input
+            <Input
               type="password"
               name="password"
               placeholder="Password"
@@ -60,7 +61,7 @@ const Register = () => {
               onBlur={handleBlur}
               required
             />
-          </label>
+          </Label>
           {errors?.password && (
             <p className={s.errorParrafo}>{errors?.password}</p>
           )}
