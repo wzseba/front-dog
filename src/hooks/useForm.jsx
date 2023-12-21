@@ -40,24 +40,18 @@ export const useForm = (initialForm,validateForm,dispatch,enviarData)=>{
 
    const handleSubmit = (e)=>{
     e.preventDefault();
-
-    if(e.target[2]){
-        console.log('enviando form al backend ', form)
-        dispatch(enviarData(form));
-        return;
-    }
-
-    setErrors(validateForm(form));
-    
+    // console.log(e.target);
     if(Object.keys(errors).length === 0){
         dispatch(enviarData(form));
-        alert('Perrito Creado con exito');
+        console.log('enviando form al backend ', form);
+        // alert('Perrito Creado con exito');
         
         /**Se formatea estado */
+        console.log("initialForm:", initialForm);
         setForm(initialForm);
-    }else{
-        return;
+        setErrors(validateForm(form));
     }
+        return;
    }
 
    return {
