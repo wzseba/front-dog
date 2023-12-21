@@ -17,7 +17,7 @@ const Landing = () => {
 
   const dispatch = useDispatch();
   
-  const {handleSubmit, handleBlur, handleChange, errors} = useForm(initialLogin, validatorLogin, dispatch, loginForm);
+  const {form, handleSubmit, handleBlur, handleChange, errors} = useForm(initialLogin, validatorLogin, dispatch, loginForm);
 
   return (
     
@@ -28,6 +28,7 @@ const Landing = () => {
 
         <div className={s.de}>
           <FormLogin
+            form={form}
             handleSubmit={handleSubmit}
             handleBlur={handleBlur}
             handleChange={handleChange}
