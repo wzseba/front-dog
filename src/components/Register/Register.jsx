@@ -3,7 +3,7 @@ import s from "./Register.module.css";
 import { useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { validatorRegister } from "../../helpers/validatorForm";
-import { loginForm } from "../../redux/action";
+import { registerForm } from "../../redux/action";
 import { Button, Input, Label } from "../ui";
 
 const initialRegister = {
@@ -15,11 +15,11 @@ const initialRegister = {
 const Register = () => {
   const dispatch = useDispatch();
 
-  const { handleSubmit, handleBlur, handleChange, errors } = useForm(
+  const { form, handleSubmit, handleBlur, handleChange, errors } = useForm(
     initialRegister,
     validatorRegister,
     dispatch,
-    loginForm
+    registerForm
   );
   return (
     <div className={s.container}>
@@ -31,6 +31,7 @@ const Register = () => {
             <Input
               type="text"
               name="name"
+              value={form.name}
               placeholder="Name"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -43,6 +44,7 @@ const Register = () => {
             <Input
               type="email"
               name="email"
+              value={form.email}
               placeholder="Email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -56,6 +58,7 @@ const Register = () => {
             <Input
               type="password"
               name="password"
+              value={form.password}
               placeholder="Password"
               onChange={handleChange}
               onBlur={handleBlur}
