@@ -86,6 +86,18 @@ export function loginForm(payload){
     }
 }
 
+export function registerForm(payload){
+    
+    return async function(){
+        try {
+            await axios.post('/register',payload);
+            console.log('REGISTRO enviado correctamente!!!');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
 export function clearDetail(){
     return{
         type: "CLEAR_DETAIL"
