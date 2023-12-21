@@ -4,7 +4,7 @@ import {Input, Button, Label} from "../ui";
 
 import s from "./FormLogin.module.css";
 
-const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
+const FormLogin = ({form, handleSubmit, handleBlur, handleChange, errors }) => {
   return (
     <div>
       <h1>DogLandia</h1>
@@ -15,6 +15,7 @@ const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
             <Input
               type="email"
               name="email"
+              value={form.email}
               placeholder="Email"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -28,6 +29,7 @@ const FormLogin = ({ handleSubmit, handleBlur, handleChange, errors }) => {
             <Input
               type="password"
               name="password"
+              value={form.password}
               placeholder="Password"
               onChange={handleChange}
               onBlur={handleBlur}
