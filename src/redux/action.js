@@ -73,15 +73,11 @@ export function createDog(payload) {
 }
 
 export function loginForm(payload) {
-  return async function () {
+  return async function (dispatch) {
     try {
-      // Utiliza axios.post en lugar de axios.get para enviar datos al servidor
-      const response = await axios.post("/login",payload);
+      const res = await axios.post("auth/login", payload);
 
-      // Puedes hacer algo con la respuesta si es necesario
-      console.log("data enviada correctamente!!!", response.data);
-
-      // dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (error) {
       console.error(error);
     }
