@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import {Input, Button, Label} from "../ui";
+import { Input, Button, Label } from "../ui";
 
 import s from "./FormLogin.module.css";
+import { useSelector } from "react-redux";
 
-const FormLogin = ({form, handleSubmit, handleBlur, handleChange, errors }) => {
+const FormLogin = ({
+  form,
+  handleSubmit,
+  handleBlur,
+  handleChange,
+  errors,
+}) => {
+  // const token = useSelector((state) => state.token.ok);
+  // useEffect(() => {}, [token]);
+
   return (
     <div>
       <h1>DogLandia</h1>
@@ -41,12 +51,15 @@ const FormLogin = ({form, handleSubmit, handleBlur, handleChange, errors }) => {
             <p className={s.errorParrafo}>{errors?.password}</p>
           )}
           <div className={s.submit}>
-            <abbr title="Los usuarios pueden crear razas">
-              <Input type="submit" value="Iniciar Sesion" />
-            </abbr>
-            <abbr title="Los usuarios no pueden crear razas">
-              <Button to="/home">Invitado</Button>
-            </abbr>
+            <Input
+              type="submit"
+              value="Iniciar Sesion"
+              title="Los usuarios pueden crear razas"
+            />
+
+            <Button to="/home" title="Los usuarios no pueden crear razas">
+              Invitado
+            </Button>
           </div>
         </form>
         <Button className={s.crearCuenta} to="/register">
