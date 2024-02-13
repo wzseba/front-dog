@@ -2,52 +2,52 @@ const initialState = {
   dogs: [],
   allDogs: [],
   temperaments: [],
-  favorites: localStorage.getItem("favorites")
-    ? JSON.parse(localStorage.getItem("favorites"))
+  favorites: localStorage.getItem('favorites')
+    ? JSON.parse(localStorage.getItem('favorites'))
     : [],
   detail: {},
-  token: localStorage.getItem("token") || null,
+  token: false,
 };
-// localStorage.hasOwnProperty("favorites") ? JSON.parse(localStorage.getItem("favorites")): [],
+
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_ALL_DOGS": {
+    case 'GET_ALL_DOGS': {
       return {
         ...state,
         dogs: action.payload,
-        allDogs: action.payload, //una copia del estado que siempre va a tener todos y sobre el cual vamos a trabajar para los filtros
+        allDogs: action.payload, // una copia del estado que siempre va a tener todos y sobre el cual vamos a trabajar para los filtros
       };
     }
-    case "GET_DOG": {
+    case 'GET_DOG': {
       return {
         ...state,
         dogs: action.payload,
       };
     }
-    case "GET_DETAIL": {
+    case 'GET_DETAIL': {
       return {
         ...state,
         detail: action.payload,
       };
     }
-    case "GET_TEMPERAMENTS": {
+    case 'GET_TEMPERAMENTS': {
       return {
         ...state,
         temperaments: action.payload,
       };
     }
-    case "CREATE_DOG": {
+    case 'CREATE_DOG': {
       return {
         ...state,
       };
     }
-    case "CLEAR_DETAIL": {
+    case 'CLEAR_DETAIL': {
       return {
         ...state,
         detail: {},
       };
     }
-    case "ADD_FAVORITE": {
+    case 'ADD_FAVORITE': {
       // const findFav = state.favorites.find((f) => f.id === action.payload.id);
       // console.log(findFav)
       return {
@@ -55,40 +55,40 @@ const rootReducer = (state = initialState, action) => {
         favorites: [...state.favorites, action.payload],
       };
     }
-    case "DELETE_FAVORITE": {
+    case 'DELETE_FAVORITE': {
       const deleteFavorite = state.favorites.filter(
-        (fav) => fav.id !== action.payload
+        fav => fav.id !== action.payload
       );
       return {
         ...state,
         favorites: deleteFavorite,
       };
     }
-    case "FILTER_API_OR_DB": {
+    case 'FILTER_API_OR_DB': {
       const filtered =
-        action.payload === "db"
-          ? state.allDogs.filter((dog) => dog.createdInDb)
-          : state.allDogs.filter((dog) => !dog.createdInDb);
+        action.payload === 'db'
+          ? state.allDogs.filter(dog => dog.createdInDb)
+          : state.allDogs.filter(dog => !dog.createdInDb);
       return {
         ...state,
-        dogs: action.payload === "all" ? state.allDogs : filtered,
+        dogs: action.payload === 'all' ? state.allDogs : filtered,
       };
     }
-    case "FILTER_BY_TEMPERAMENT": {
-      const allDogs = state.allDogs; //filtro sobre una copia que simpre va a a tener todas las razas sin modificar mi estado principal dogs
+    case 'FILTER_BY_TEMPERAMENT': {
+      const allDogs = state.allDogs; // filtro sobre una copia que simpre va a a tener todas las razas sin modificar mi estado principal dogs
       const filteredTemperament =
-        action.payload === "all"
+        action.payload === 'all'
           ? allDogs
-          : allDogs.filter((d) => d.temperament?.includes(action.payload));
+          : allDogs.filter(d => d.temperament?.includes(action.payload));
 
       return {
         ...state,
         dogs: filteredTemperament,
       };
     }
-    case "ORDER_BY_NAME": {
+    case 'ORDER_BY_NAME': {
       const orderName =
-        action.payload === "asc"
+        action.payload === 'asc'
           ? state.dogs.sort((a, b) => a.name.localeCompare(b.name))
           : state.dogs.sort((a, b) => b.name.localeCompare(a.name));
       return {
@@ -96,13 +96,13 @@ const rootReducer = (state = initialState, action) => {
         dogs: orderName,
       };
     }
-    case "ORDER_BY_WEIGHT": {
-      //a.weight.substring(0,2).trim() --> [{weight:'37 - 11'}] --> '37' => con substring(0,2) separo los primeros dos carecteres, en caso de que solo se encuentre un caracter separa ese caracter y con .trim()
-      //eliminamos espacios en blanco y obtengo como resultado el string '37' asilado de lo de mas.
-      //Luego usamos localeCompare que se usa para comparar string pasando los argumentos options y locales => undefined -> no hay localidad definida, numeric: true -> habilitamos comparacion numerica
+    case 'ORDER_BY_WEIGHT': {
+      // a.weight.substring(0,2).trim() --> [{weight:'37 - 11'}] --> '37' => con substring(0,2) separo los primeros dos carecteres, en caso de que solo se encuentre un caracter separa ese caracter y con .trim()
+      // eliminamos espacios en blanco y obtengo como resultado el string '37' asilado de lo de mas.
+      // Luego usamos localeCompare que se usa para comparar string pasando los argumentos options y locales => undefined -> no hay localidad definida, numeric: true -> habilitamos comparacion numerica
 
       const orderWeight =
-        action.payload === "min"
+        action.payload === 'min'
           ? state.dogs.sort((a, b) =>
               a.weight
                 .substring(0, 2)
@@ -125,11 +125,16 @@ const rootReducer = (state = initialState, action) => {
         dogs: orderWeight,
       };
     }
-    case "LOGIN_SUCCESS":
+    case 'LOGIN_SUCCESS':
       return {
         ...state,
         token: action.payload,
         error: null,
+      };
+    case 'LOGIN_FAILURE':
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

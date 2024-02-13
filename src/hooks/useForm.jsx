@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useForm = (initialForm, validateForm, dispatch, enviarData) => {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
 
-  /**manejadores de eventos */
+  /** manejadores de eventos */
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
 
     setForm({
@@ -15,13 +15,13 @@ export const useForm = (initialForm, validateForm, dispatch, enviarData) => {
     });
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     handleChange(e);
-    /** Setea el error de cada propiedad del objeto form*/
+    /** Setea el error de cada propiedad del objeto form */
     setErrors(validateForm(form));
   };
 
-  const handleSelect = (e) => {
+  const handleSelect = e => {
     const { value } = e.target;
     setForm({
       ...form,
@@ -29,25 +29,24 @@ export const useForm = (initialForm, validateForm, dispatch, enviarData) => {
     });
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = e => {
     setForm({
       ...form,
-      temperaments: form.temperaments.filter((t) => t !== e),
+      temperaments: form.temperaments.filter(t => t !== e),
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     // console.log(e.target);
 
     if (Object.keys(errors).length === 0) {
       dispatch(enviarData(form));
 
-      /**Se formatea estado */
+      /** Se formatea estado */
       setForm(initialForm);
       setErrors(validateForm(form));
     }
-    return;
   };
 
   return {

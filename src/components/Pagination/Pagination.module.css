@@ -1,73 +1,73 @@
-.container_nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.container_nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 @media only screen and (max-width: 600px) {
-    .container_nav{
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-    }
+  .container_nav {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
 }
 
-.container_ul{
-    display: flex;
+.container_ul {
+  display: flex;
 }
 
-@media only screen and (max-width: 600px){
-    .container_ul{
-        display: none;
-    }
+@media only screen and (max-width: 600px) {
+  .container_ul {
+    display: none;
+  }
 }
 
-.container_ul button{
-    /* background-color: rgb(51, 116, 94); */
-    margin-right: 1rem;
-    padding: 0.5rem;
-    text-align: center;
-    font-weight: bold;
+.container_ul button {
+  /* background-color: rgb(51, 116, 94); */
+  margin-right: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 /* .container_ul button:focus{
     background-color: rgb(0, 217, 255);
 } */
 
-.container_ul button:last-child{
-    margin: 0;
+.container_ul button:last-child {
+  margin: 0;
 }
 
-.btn_pages{
-    background-color: rgb(51, 116, 94);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.2rem;
+.btn_pages {
+  background-color: rgb(51, 116, 94);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.2rem;
 }
 
-.btn_pages:hover{
-    cursor: pointer;
-    color: aqua;
+.btn_pages:hover {
+  cursor: pointer;
+  color: aqua;
 }
 
 .active {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.2rem;
-    background-color: rgb(0, 217, 255);
-    color: black;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(0, 217, 255);
+  color: black;
 }
 
-.btn{
-    background-color: rgb(51, 116, 94);
-    padding: 0 2rem;
-    height: 2.5rem;
-    border-radius: .2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+.btn {
+  background-color: rgb(51, 116, 94);
+  padding: 0 2rem;
+  height: 2.5rem;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
-.btn:hover{
-    color: aqua;
+.btn:hover {
+  color: aqua;
 }
-.btn_not:hover{
-    cursor: not-allowed;
+.btn_not:hover {
+  cursor: not-allowed;
 }

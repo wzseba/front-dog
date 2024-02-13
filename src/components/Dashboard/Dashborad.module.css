@@ -1,0 +1,37 @@
+/* dashboard.css */
+.dashboardContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+  background-color: #222;
+  padding: 10px;
+}
+
+.navItem {
+  margin-bottom: 10px;
+}
+
+/* Estilos para hacer responsive */
+@media screen and (max-width: 768px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+// import { useSelector } from 'react-redux';
+// import Dashboard from '../Dashboard/Dashboard';
 
-import { Input, Button, Label } from "../ui";
+import { Input, Button, Label } from '../ui';
 
-import s from "./FormLogin.module.css";
-import { useSelector } from "react-redux";
+import s from './FormLogin.module.css';
 
 const FormLogin = ({
   form,
@@ -12,9 +12,12 @@ const FormLogin = ({
   handleChange,
   errors,
 }) => {
-  // const token = useSelector((state) => state.token.ok);
-  // useEffect(() => {}, [token]);
+  // const token = useSelector(state => state.token?.ok);
+  // const errorMsgServer = useSelector(state => state.error);
 
+  // if (token) {
+  //   return <Dashboard />;
+  // }
   return (
     <div>
       <h1>DogLandia</h1>
@@ -23,10 +26,10 @@ const FormLogin = ({
           <Label className={s.container_label}>
             Email:
             <Input
-              type="email"
-              name="email"
+              type='email'
+              name='email'
               value={form.email}
-              placeholder="Email"
+              placeholder='Email'
               onChange={handleChange}
               onBlur={handleBlur}
               required
@@ -37,10 +40,10 @@ const FormLogin = ({
           <Label className={s.container_label}>
             Password:
             <Input
-              type="password"
-              name="password"
+              type='password'
+              name='password'
               value={form.password}
-              placeholder="Password"
+              placeholder='Password'
               onChange={handleChange}
               onBlur={handleBlur}
               required
@@ -52,20 +55,21 @@ const FormLogin = ({
           )}
           <div className={s.submit}>
             <Input
-              type="submit"
-              value="Iniciar Sesion"
-              title="Los usuarios pueden crear razas"
+              type='submit'
+              value='Iniciar Sesion'
+              title='Los usuarios pueden crear razas'
             />
 
-            <Button to="/home" title="Los usuarios no pueden crear razas">
+            <Button to='/home' title='Los usuarios no pueden crear razas'>
               Invitado
             </Button>
           </div>
         </form>
-        <Button className={s.crearCuenta} to="/register">
+        <Button className={s.crearCuenta} to='/register'>
           Crear una cuenta
         </Button>
       </div>
+      {/* <h1>{errorMsgServer}</h1> */}
     </div>
   );
 };

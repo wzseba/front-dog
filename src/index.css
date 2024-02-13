@@ -1,7 +1,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -12,19 +14,18 @@ body {
   /* background-color: rgb(198, 241, 209); */
   background-color: rgba(187, 185, 187, 0.959);
 }
-ul{
+ul {
   list-style: none;
   padding: 0;
 }
 h1,
 h2,
-h3{
+h3 {
   margin: 0;
 }
-a{
+a {
   text-decoration: none;
 }
-button{
+button {
   border-style: none;
 }
-

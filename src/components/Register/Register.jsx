@@ -1,15 +1,14 @@
-import React from "react";
-import s from "./Register.module.css";
-import { useDispatch } from "react-redux";
-import { useForm } from "../../hooks/useForm";
-import { validatorRegister } from "../../helpers/validatorForm";
-import { registerForm } from "../../redux/action";
-import { Button, Input, Label } from "../ui";
+import s from './Register.module.css';
+import { useDispatch } from 'react-redux';
+import { useForm } from '../../hooks/useForm';
+import { validatorRegister } from '../../helpers/validatorForm';
+import { registerForm } from '../../redux/action';
+import { Button, Input, Label } from '../ui';
 
 const initialRegister = {
-  name: "",
-  email: "",
-  password: "",
+  name: '',
+  email: '',
+  password: '',
 };
 
 const Register = () => {
@@ -19,7 +18,7 @@ const Register = () => {
     initialRegister,
     validatorRegister,
     dispatch,
-    registerForm
+    registerForm,
   );
   return (
     <div className={s.container}>
@@ -29,10 +28,10 @@ const Register = () => {
           <Label className={s.container_label}>
             Name:
             <Input
-              type="text"
-              name="name"
+              type='text'
+              name='name'
               value={form.name}
-              placeholder="Name"
+              placeholder='Name'
               onChange={handleChange}
               onBlur={handleBlur}
               required
@@ -42,10 +41,10 @@ const Register = () => {
           <Label className={s.container_label}>
             Email:
             <Input
-              type="email"
-              name="email"
+              type='email'
+              name='email'
               value={form.email}
-              placeholder="Email"
+              placeholder='Email'
               onChange={handleChange}
               onBlur={handleBlur}
               required
@@ -56,10 +55,10 @@ const Register = () => {
           <Label className={s.container_label}>
             Password:
             <Input
-              type="password"
-              name="password"
+              type='password'
+              name='password'
               value={form.password}
-              placeholder="Password"
+              placeholder='Password'
               onChange={handleChange}
               onBlur={handleBlur}
               required
@@ -69,8 +68,8 @@ const Register = () => {
             <p className={s.errorParrafo}>{errors?.password}</p>
           )}
           <div className={s.submit}>
-            <Input type="submit" value="Crear Usuario" />
-            <Button className={s.crearCuenta} to="/">
+            <Input type='submit' value='Crear Usuario' />
+            <Button className={s.crearCuenta} to='/'>
               Volver
             </Button>
           </div>

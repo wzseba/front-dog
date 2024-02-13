@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
 export function getAllDogs() {
   return async function (dispatch) {
     try {
-      const res = await axios.get("/dogs");
+      const res = await axios.get('/dogs');
 
       dispatch({
-        type: "GET_ALL_DOGS",
+        type: 'GET_ALL_DOGS',
         payload: res.data,
       });
     } catch (error) {
@@ -21,7 +21,7 @@ export function getDetail(id) {
       const res = await axios.get(`dogs/${id}`);
 
       dispatch({
-        type: "GET_DETAIL",
+        type: 'GET_DETAIL',
         payload: res.data,
       });
     } catch (error) {
@@ -33,10 +33,10 @@ export function getDetail(id) {
 export function getTemperaments() {
   return async function (dispatch) {
     try {
-      const res = await axios.get("/temperaments");
+      const res = await axios.get('/temperaments');
 
       dispatch({
-        type: "GET_TEMPERAMENTS",
+        type: 'GET_TEMPERAMENTS',
         payload: res.data,
       });
     } catch (error) {
@@ -50,7 +50,7 @@ export function getDog(name) {
     try {
       const res = await axios.get(`/dogs?name=${name}`);
       dispatch({
-        type: "GET_DOG",
+        type: 'GET_DOG',
         payload: res.data,
       });
     } catch (error) {
@@ -62,9 +62,9 @@ export function getDog(name) {
 export function createDog(payload) {
   return async function (dispatch) {
     try {
-      await axios.post("/dogs", payload);
+      await axios.post('/dogs', payload);
       return dispatch({
-        type: "CREATE_DOG",
+        type: 'CREATE_DOG',
       });
     } catch (error) {
       console.log(error);
@@ -75,11 +75,13 @@ export function createDog(payload) {
 export function loginForm(payload) {
   return async function (dispatch) {
     try {
-      const res = await axios.post("auth/login", payload);
+      const res = await axios.post('auth/login', payload);
 
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-    } catch (error) {
-      console.error(error);
+      dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.ok });
+    } catch (err) {
+      console.error(err.response.data.error);
+      const msg = err.response.data.error;
+      dispatch({ type: 'LOGIN_FAILURE', payload: msg });
     }
   };
 }
@@ -87,8 +89,8 @@ export function loginForm(payload) {
 export function registerForm(payload) {
   return async function () {
     try {
-      await axios.post("/login/register", payload);
-      console.log("REGISTRO enviado correctamente!!!");
+      await axios.post('/login/register', payload);
+      console.log('REGISTRO enviado correctamente!!!');
     } catch (error) {
       console.log(error);
     }
@@ -97,48 +99,48 @@ export function registerForm(payload) {
 
 export function clearDetail() {
   return {
-    type: "CLEAR_DETAIL",
+    type: 'CLEAR_DETAIL',
   };
 }
 
 export function filteredApiOrDb(payload) {
   return {
-    type: "FILTER_API_OR_DB",
+    type: 'FILTER_API_OR_DB',
     payload,
   };
 }
 
 export function orderByName(payload) {
   return {
-    type: "ORDER_BY_NAME",
+    type: 'ORDER_BY_NAME',
     payload,
   };
 }
 
 export function orderByWeight(payload) {
   return {
-    type: "ORDER_BY_WEIGHT",
+    type: 'ORDER_BY_WEIGHT',
     payload,
   };
 }
 
 export function filterByTemperament(payload) {
   return {
-    type: "FILTER_BY_TEMPERAMENT",
+    type: 'FILTER_BY_TEMPERAMENT',
     payload,
   };
 }
 
 export function addFavorite(payload) {
   return {
-    type: "ADD_FAVORITE",
+    type: 'ADD_FAVORITE',
     payload,
   };
 }
 
 export function deleteFavorite(id) {
   return {
-    type: "DELETE_FAVORITE",
+    type: 'DELETE_FAVORITE',
     payload: id,
   };
 }

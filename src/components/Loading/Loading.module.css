@@ -1,12 +1,12 @@
-.cargando{
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+.cargando {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-.cargando_img{
-    /* width: 20rem;
+.cargando_img {
+  /* width: 20rem;
     height: 20rem; */
-    width: 40rem;
+  width: 40rem;
 }
