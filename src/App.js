@@ -11,9 +11,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './helpers/PrivateRoute';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
-axios.defaults.baseURL = 'http://localhost:3001';
-// axios.defaults.baseURL = 'https://server-dog.onrender.com/';
-// axios.defaults.baseURL = 'https://dog-back-dev-dktb.3.us-1.fl0.io';
+// axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://dog-back-zeww.onrender.com';
 
 function App() {
   return (
