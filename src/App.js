@@ -1,5 +1,5 @@
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import axios from 'axios';
 import Landing from './components/Landing/Landing';
 import Home from './components/Home/Home';
