@@ -28,8 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write .",
-    "lint": "eslint --fix . --ext .js,.jsx",
-    "prebuild": "npm run lint"
+    "lint": "eslint --fix . --ext .js,.jsx"
   },
   "eslintConfig": {
     "extends": [
