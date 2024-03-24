@@ -54,7 +54,6 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "eslint": "^8.56.0",
-    "eslint-config-custom": "workspace:*",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react": "^1.1.7",
     "eslint-config-standard": "^17.1.0",
