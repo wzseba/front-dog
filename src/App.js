@@ -12,7 +12,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 
 // axios.defaults.baseURL = 'http://localhost:3001';
 // axios.defaults.baseURL = 'https://dog-back-zeww.onrender.com';
-axios.defaults.baseURL = 'https://app-silent-bread-08505419.dpl.myneon.app'
+axios.defaults.baseURL = 'https://dog-back.vercel.app'
 
 function App() {
   return (
